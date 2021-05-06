@@ -1,0 +1,68 @@
+const uuid = require("uuid").v4;
+
+module.exports = {
+    up: queryInterface => queryInterface.bulkInsert("transfer_fees", [
+        {
+            send_currency:        "NGN",
+            destination_currency: "USD",
+            fee:                  13,
+            rate:                 0.0026,
+            product:              "SameDay",
+            id:                   uuid(),
+            created_at:           new Date(),
+            updated_at:           new Date(),
+        },
+        {
+            send_currency:        "NGN",
+            destination_currency: "CAD",
+            fee:                  13,
+            rate:                 0.0034,
+            product:              "SameDay",
+            id:                   uuid(),
+            created_at:           new Date(),
+            updated_at:           new Date(),
+        },
+        {
+            send_currency:        "CAD",
+            destination_currency: "NGN",
+            fee:                  13,
+            rate:                 291,
+            product:              "SameDay",
+            id:                   uuid(),
+            created_at:           new Date(),
+            updated_at:           new Date(),
+        },
+        {
+            send_currency:        "USD",
+            destination_currency: "NGN",
+            fee:                  13,
+            rate:                 365,
+            product:              "SameDay",
+            id:                   uuid(),
+            created_at:           new Date(),
+            updated_at:           new Date(),
+        },
+        {
+            send_currency:        "GBP",
+            destination_currency: "NGN",
+            fee:                  3,
+            rate:                 503.03,
+            product:              "SameDay",
+            id:                   uuid(),
+            created_at:           new Date(),
+            updated_at:           new Date(),
+        },
+        {
+            send_currency:        "NGN",
+            destination_currency: "GBP",
+            fee:                  3,
+            rate:                 0.0020,
+            product:              "SameDay",
+            id:                   uuid(),
+            created_at:           new Date(),
+            updated_at:           new Date(),
+        },
+    ]),
+
+    down: queryInterface => queryInterface.bulkDelete("transfer_fees", null, {}),
+};
