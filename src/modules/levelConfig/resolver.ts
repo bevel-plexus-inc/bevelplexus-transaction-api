@@ -55,7 +55,7 @@ export default class LevelConfigResolver {
     }
 
     @Authorized(GenericRole.Admin)
-    @Query(returns => LevelConfig)
+    @Mutation(returns => LevelConfig)
     async deleteLevelConfig(@Arg("levelConfigId") levelConfigId: string): Promise<LevelConfig> {
         const response = await this.levelConfigProvider.deleteLevelConfig(levelConfigId);
         if (isInstanceOfError(response)) {

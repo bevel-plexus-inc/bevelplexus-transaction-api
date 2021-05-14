@@ -94,7 +94,7 @@ export default class ConfigResolver {
     }
 
     @Authorized(GenericRole.Admin)
-    @Query(returns => TransferFee)
+    @Mutation(returns => TransferFee)
     async deleteTransferFee(@Arg("transferFeeId") transferFeeId: string): Promise<TransferFee> {
         const response = await this.configProvider.deleteTransferFee(transferFeeId);
         if (isInstanceOfError(response)) {
