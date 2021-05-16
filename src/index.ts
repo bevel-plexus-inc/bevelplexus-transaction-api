@@ -41,7 +41,7 @@ Sentry.init({
 });
 
 app.use(helmet());
-app.use(cors({ origin: /\.bevelplexus\.com$/ }));
+app.use(cors({ origin: [/\.bevelplexus\.com$/, /locahlhost:3000$/] }));
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
