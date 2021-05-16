@@ -41,10 +41,14 @@ Sentry.init({
 });
 
 app.use(helmet());
-app.use(cors({ origin: [/\.bevelplexus\.com$/, /locahlhost:3000$/] }));
+app.use(cors({ origin: [/\.bevelplexus\.com$/, /https?:\/\/localhost:[0-9]{1,4}\/?/] }));
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.options("*", cors({
+    origin:               [/\.bevelplexus\.com$/, /https?:\/\/localhost:[0-9]{1,4}\/?/],
+    optionsSuccessStatus: 200,
+}));
 
 const server = new ApolloServer({
     schema:        appModule.schema,
