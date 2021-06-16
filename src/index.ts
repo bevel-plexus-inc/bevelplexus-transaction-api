@@ -41,15 +41,20 @@ Sentry.init({
 });
 
 app.use(helmet());
-app.use(cors({ origin: [/\.bevelplexus\.com$/, /https?:\/\/localhost:[0-9]{1,4}\/?/] }));
-app.use("/graphql", cors({ origin: [/\.bevelplexus\.com$/, /https?:\/\/localhost:[0-9]{1,4}\/?/] }));
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+// tslint:disable-next-line:comment-type
+/*
+app.use(cors({ origin: [/\.bevelplexus\.com$/, /https?:\/\/localhost:[0-9]{1,4}\/?/] }));
+app.use("/graphql", cors({ origin: [/\.bevelplexus\.com$/, /https?:\/\/localhost:[0-9]{1,4}\/?/] }));
 app.options("*", cors({
     origin:               [/\.bevelplexus\.com$/, /https?:\/\/localhost:[0-9]{1,4}\/?/],
     optionsSuccessStatus: 200,
 }));
+
+*/
 
 const server = new ApolloServer({
     schema:        appModule.schema,
