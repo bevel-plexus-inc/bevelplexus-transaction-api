@@ -166,7 +166,8 @@ export default class TransactionResolver {
                 );
             }
 
-            if (sendingValue < config.getDataValue("minimumSendAmount")) {
+            if (sendingValue < 50) {
+            // if (sendingValue < config.getDataValue("minimumSendAmount")) {
                 throw new UserInputError(
                     "Transfer does not meet minimum send limit",
                     { errorCode: errorCodes.LowerThanMinimumSendAmount },
