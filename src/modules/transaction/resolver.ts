@@ -158,13 +158,13 @@ export default class TransactionResolver {
                     { errorCode: errorCodes.UserNotVerifiedCanOnlySendOnce },
                 );
             }
-            const config = await this.configProvider.getConfig();
-            if (!config) {
-                throw new UserInputError(
-                    "Internal Server Error: configuration setup",
-                    { errorCode: errorCodes.ConfigNotSetup },
-                );
-            }
+            // const config = await this.configProvider.getConfig();
+            // if (!config) {
+            //     throw new UserInputError(
+            //         "Internal Server Error: configuration setup",
+            //         { errorCode: errorCodes.ConfigNotSetup },
+            //     );
+            // }
 
             if (sendingValue < 50) {
             // if (sendingValue < config.getDataValue("minimumSendAmount")) {
